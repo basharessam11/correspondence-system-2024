@@ -1,0 +1,312 @@
+<?php
+session_start();
+include "../../sql.php";
+if (!isset($_SESSION['login'])) {
+header("location:../../../index.php");
+}
+
+
+$id=$_SESSION['user_id'] ;
+
+$sql->selectall("user where id = $id");
+
+while ($row = $sql->res->fetch_assoc()) {
+ 
+ 
+ 
+$print=$row['print'];
+$status=$row['status'];
+
+ if ($print==0) {
+  header("location:../../../dashbord.php?dash=list");
+}
+
+
+if ($status==0) {
+  header("location:../../../log_out.php");
+}
+
+
+}
+
+
+
+
+
+
+
+
+      $company_id=$_SESSION['company_id'];
+     $sql->selectall("company where id=$company_id ");
+     $x=1;
+     while ($row = $sql->res->fetch_assoc()) {
+      $logo=$row['file']; 
+      if ($_COOKIE['lang']=="ar")
+        {$name=$row['name'];
+    }else if ($_COOKIE['lang']=="en")
+    {$name=$row['name_en'];}
+      
+
+ 
+       
+      $email=$row['email']; 
+      $phone=$row['phone']; 
+      if ($_COOKIE['lang']=="ar")
+        {$address=$row['address'];
+    }else if ($_COOKIE['lang']=="en")
+    {$address=$row['address_en'];}
+      
+
+      }
+
+?>
+
+<!DOCTYPE html>
+
+<html lang="en" class="light-style layout-wide " dir="ltr" data-theme="theme-default" data-assets-path="../../../" data-template="vertical-menu-template">
+
+  
+<!-- Mirrored from demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-invoice-print.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 29 Mar 2024 15:44:05 GMT -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title data-i18n="Outgoing">Outgoing</title>
+
+    
+    <meta name="description" content="Most Powerful &amp; Comprehensive Bootstrap 5 HTML Admin Dashboard Template built for developers!" />
+    <meta name="keywords" content="dashboard, bootstrap 5 dashboard, bootstrap 5 design, bootstrap 5">
+    <!-- Canonical SEO -->
+    <link rel="canonical" href="https://themeselection.com/item/sneat-bootstrap-html-admin-template/">
+    
+    
+    <!-- ? PROD Only: Google Tag Manager (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
+ 
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/../img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="../../../vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="../../../vendor/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="../../../vendor/fonts/flag-icons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../../../vendor/css/rtl/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../../../vendor/css/rtl/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../../../css/demo.css" />
+    
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../../../vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="../../../vendor/libs/typeahead-js/typeahead.css" /> 
+    
+
+    <!-- Page CSS -->
+    
+<link rel="stylesheet" href="../../../vendor/css/pages/app-invoice-print.css" />
+
+    <!-- Helpers -->
+    <script src="../../../vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
+    <script src="../../../vendor/js/template-customizer.js"></script>
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../../../js/config.js"></script>
+    
+</head>
+
+<body <?php if ($_COOKIE['lang']=="en"){echo 'style="margin: 13px;"';}?>>
+
+  
+ 
+  <!-- Content -->
+<!-- <div class="invoice-print p-5" style="margin: -35px -48px 0 -41px;"> -->
+
+<div class="invoice-print "  <?php if ($_COOKIE['lang']=="ar"){echo 'style="padding: 0 0px 0 34px;"';}?>>
+
+  <div class="d-flex justify-content-between flex-row" dir="rtl">
+    <div class="mb-4" style=" width: 100%; ">
+   
+  <p class="mb-1" style="color: black; width: 100%; "><?=$name?></p>
+  
+      
+      <p class="mb-1" style="color: black;"><?=$email?></p>
+      <p class="mb-1" style="color: black;"><?=$address?></p>
+ 
+    </div>
+    <div>
+        <img class="invoice-title" style="position: relative; width: 200px;height: 85px; float: left; " src="../../fun/company/file/<?=$logo?>" alt="Logo" class="company-logo">
+   
+    </div>
+  </div>
+
+ 
+ 
+
+  <div class="table-responsive">
+    <table class="table border-top m-0">
+      <thead>
+         <tr>
+  <th style="font-size: 12px; padding: 5px 5px 5px 5px; color:black;   font-weight: bold; text-align:center;background-color: #ccc;letter-spacing:0px;" data-i18n="#">#</th>
+          <th style="font-size: 12px; padding: 5px 5px 5px 5px; color:black;   font-weight: bold; text-align:center;background-color: #ccc;letter-spacing:0px;" data-i18n="Outgoing number">Outgoing number</th>
+          <th style="font-size: 12px; padding: 5px 5px 5px 5px; color:black;   font-weight: bold; text-align:center;background-color: #ccc;letter-spacing:0px;" data-i18n="outgoing date">outgoing date</th>
+          <th style="font-size: 12px; padding: 5px 5px 5px 5px; color:black;   font-weight: bold; text-align:center;background-color: #ccc;letter-spacing:0px;" data-i18n="Transaction Type">Transaction Type</th>
+          <th style="font-size: 12px; padding: 5px 5px 5px 5px; color:black;   font-weight: bold; text-align:center;background-color: #ccc;letter-spacing:0px;" data-i18n="Importance">Importance</th>
+          <th style="font-size: 12px; padding: 5px 5px 5px 5px; color:black;   font-weight: bold; text-align:center;background-color: #ccc;letter-spacing:0px;" data-i18n="Confidentiality">Confidentiality</th>
+          <th style="font-size: 12px; padding: 5px 5px 5px 5px; color:black;   font-weight: bold; text-align:center;background-color: #ccc;letter-spacing:0px;" data-i18n="subject1">subject</th>
+          <th style="font-size: 12px; padding: 5px 5px 5px 5px; color:black;   font-weight: bold; text-align:center;background-color: #ccc;letter-spacing:0px;" data-i18n="dialect">dialect</th>
+          <th style="font-size: 12px; padding: 5px 5px 5px 5px; color:black;   font-weight: bold; text-align:center;background-color: #ccc;letter-spacing:0px;" data-i18n="Sender">Sender</th>
+ 
+        
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+       $date1=$_GET['date1'];
+    $date2=$_GET['date2'];
+    $page=$_GET['page'];
+    $status=$_GET['status'];
+$sql->selectjoin("  
+  outgoing.id ,
+  outgoing.tarmez ,
+ outgoing.num_id ,
+  outgoing.subject,
+  outgoing.subject_en,
+  outgoing.user_id,
+  outgoing.outgoing_date,
+  transaction_type.name AS transaction_type_name,
+  transaction_type.name_en AS transaction_type_name_en,
+  importance.name AS importance_name,
+  importance.name_en AS importance_name_en,
+  dialect.name AS dialect_name,
+  dialect.name_en AS dialect_name_en,
+  user.name AS user_name,
+  user.name_en AS user_name_en,
+  confidentiality.name AS confidentiality_name,
+  confidentiality.name_en AS confidentiality_name_en
+
+  "
+  ,"outgoing","
+    transaction_type ON outgoing.transaction_type_id = transaction_type.id 
+    INNER JOIN importance ON outgoing.importance_id = importance.id 
+    INNER JOIN confidentiality ON outgoing.confidentiality_id = confidentiality.id 
+    INNER JOIN dialect ON outgoing.dialect_id = dialect.id
+    INNER JOIN user ON outgoing.user_id = user.id 
+    where
+    outgoing.status=$status and 
+    outgoing.company_sender_id =$company_id and
+    outgoing_date BETWEEN' $date1' AND '$date2';
+    ");
+ 
+
+
+   
+
+ $x=1;
+
+// Loop through each row in the result set
+while ($row = $sql->res11->fetch_assoc()) {
+ 
+
+
+ 
+?>  
+        <tr>
+          <td style="width:70px;font-size: 12px; padding: 5px 5px 5px 5px; color:black;  font-weight: bold; text-align:center"><?=$x?></td>
+          <td style="width:70px;font-size: 12px; padding: 5px 5px 5px 5px; color:black;  font-weight: bold; text-align:center"><?=$row['tarmez'].$row['num_id']?></td>
+          <td style="width:90px;font-size: 12px; padding: 5px 5px 5px 5px; color:black;  font-weight: bold; text-align:center"><?=$row['outgoing_date']?></td>
+          <td style="width:70px; font-size: 12px; padding: 5px 5px 5px 5px; color:black;  font-weight: bold; text-align:center">
+<?php if ($_COOKIE['lang']=="ar"){echo $row['transaction_type_name'];}else if ($_COOKIE['lang']=="en"){echo $row['transaction_type_name_en'];}?>
+</td>
+          <td style="font-size: 12px; padding: 5px 5px 5px 5px; color:black;  font-weight: bold; text-align:center">
+            <?php if ($_COOKIE['lang']=="ar"){echo $row['importance_name'];}else if ($_COOKIE['lang']=="en"){echo $row['importance_name_en'];}?>
+           
+          </td>
+          <td style="font-size: 12px; padding: 5px 5px 5px 5px; color:black;  font-weight: bold; text-align:center">
+             <?php if ($_COOKIE['lang']=="ar"){echo $row['confidentiality_name'];}else if ($_COOKIE['lang']=="en"){echo $row['confidentiality_name_en'];}?>
+ </td>
+          <td style="font-size: 12px; padding: 5px 5px 5px 5px; color:black;  font-weight: bold; text-align:center">
+<?php if ($_COOKIE['lang']=="ar"){echo $row['subject'];}else if ($_COOKIE['lang']=="en"){echo $row['subject_en'];}?>
+           </td>
+          <td style="font-size: 12px; padding: 5px 5px 5px 5px; color:black;  font-weight: bold; text-align:center">
+<?php if ($_COOKIE['lang']=="ar"){echo $row['dialect_name'];}else if ($_COOKIE['lang']=="en"){echo $row['dialect_name_en'];}?>
+ </td>
+          <td style="font-size: 12px; padding: 5px 5px 5px 5px; color:black;  font-weight: bold; text-align:center">
+<?php if ($_COOKIE['lang']=="ar"){echo $row['user_name'];}else if ($_COOKIE['lang']=="en"){echo $row['user_name_en'];}?>
+ </td>
+           
+        </tr>
+<?php
+$x++;
+}
+?>
+      </tbody>
+    </table>
+  </div>
+<br>
+ 
+  <div class="row">
+    <div class="col-6">
+     
+      <span class="fw-medium"><?php if ($_COOKIE['lang']=="ar"){echo 'طبع بواسطة ';}else if ($_COOKIE['lang']=="en"){echo 'Printed By ';}?><?=$_SESSION['login']?></span>
+      
+      
+    </div> 
+    <div class="col-6">
+     
+     
+      <span class="fw-medium">بتاريخ <?=date("Y-m-d   h:i:s")?></span>
+      
+    </div>
+  </div>
+</div>
+
+
+<!-- / Content -->
+
+ 
+  
+
+  <!-- Core JS -->
+  <!-- build:js ../vendor/js/core.js -->
+  
+  <script src="../../../vendor/libs/jquery/jquery.js"></script>
+  <script src="../../../vendor/libs/popper/popper.js"></script>
+  <script src="../../../vendor/js/bootstrap.js"></script>
+  <script src="../../../vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+  <script src="../../../vendor/libs/hammer/hammer.js"></script>
+  <script src="../../../vendor/libs/i18n/i18n.js"></script>
+  <script src="../../../vendor/libs/typeahead-js/typeahead.js"></script>
+  <script src="../../../vendor/js/menu.js"></script>
+  
+  <!-- endbuild -->
+
+  <!-- Vendors JS -->
+  
+  
+
+  <!-- Main JS -->
+  <script src="../../../js/main.js"></script>
+  
+
+    <script type="text/javascript">
+ 
+
+    setTimeout(function function_name(argument) {
+      window.print();
+    },1000)
+  </script>
+  
+</body>
+
+
+<!-- Mirrored from demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-invoice-print.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 29 Mar 2024 15:44:06 GMT -->
+</html>
+
+<!-- beautify ignore:end -->
+

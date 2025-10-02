@@ -1,0 +1,143 @@
+{
+  "pro": "Inbound and Outbound Program",
+
+  "for_h1": "Forgot your password? 🔒",
+  "for_h2": "Forgot your password?",
+  "for_p1": "Enter your email and we will send you instructions to reset your password",
+  "for_s": "Send Reset Link",
+  "for_b": "<i class='bx bx-chevron-left scaleX-n1-rtl bx-sm'></i>Back to Login",
+
+  "reset_h": "Reset Password 🔒",
+  "reset_l1": "New Password",
+  "reset_l2": "Confirm Password",
+  "reset_b": "Set New Password",
+
+  "Dashboard": "Dashboard",
+"time": "Overtime",
+"time1": "Do you want overtime?",
+
+"time2": "Yes, I want",
+"time3": "Time in minutes",
+
+
+
+  "Delete": "Delete",
+  "All": "All",
+  "Print": "Print",
+  "Add": "Add",
+  "date": "Date",
+  "from": "From",
+  "to": "To",
+  "backup": "Backup",
+
+  "letter": "Letter",
+
+  "histore_outging": "Outgoing Deletions",
+  "histore_incoming": "Incoming Deletions",
+
+  "histore": "Deletions",
+  "recovery": "Recovery",
+  "alert recovery": "Are you sure you want to recover these items?",
+
+  "Public Outgoing": "Public Outgoing",
+  "Transaction Type": "Transaction Type",
+  "Importance": "Importance",
+  "Confidentiality": "Confidentiality",
+  "incoming": "Incoming",
+
+  "Outgoing": "Outgoing",
+  "incoming": "Incoming",
+  "Add incoming": "Add Incoming",
+  "Edit incoming": "Edit Incoming",
+  "Users": "Users",
+  "Company": "Companies",
+  "logout": "Logout",
+
+  "Show Incoming": "Show Incoming",
+
+  "Add Outgoing": "Add Outgoing",
+  "Edit Outgoing": "Edit Outgoing",
+  "tarmez": "Encoding",
+  "Outgoing number": "Outgoing Number",
+  "outgoing date": "Outgoing Date",
+  "subject": "Subject (Arabic)",
+  "subject_en": "Subject (English)",
+  "Sender": "Sender",
+  "Action": "Action",
+  "Export": "Export",
+
+  "Add Transaction Type": "Add Transaction Type",
+  "Edit Transaction Type": "Edit Transaction Type",
+
+  "Add Importance": "Add Importance",
+  "Edit Importance": "Edit Importance",
+
+  "Add Confidentiality": "Add Confidentiality",
+  "Edit Confidentiality": "Edit Confidentiality",
+
+  "incoming number": "Incoming Number",
+  "incoming date": "Incoming Date",
+
+  "Address1": "Address",
+  "name1": "Name",
+  "subject1": "Subject",
+  "notifications": "Notifications",
+  "view all notifications": "View All Notifications",
+  "page": "Page",
+
+  "Logo": "Logo",
+  "Company Name": "Company Name",
+  "status": "Status",
+  "Add Company": "Add Company",
+  "Name": "Name (Arabic)",
+  "name_en": "Name (English)",
+  "phone": "Phone",
+  "email": "Email",
+  "fax": "Fax",
+  "URL": "Website",
+  "Address": "Address (Arabic)",
+  "Address_en": "Address (English)",
+  "Files": "Attachments",
+  "submit": "Submit",
+
+  "Edit Company": "Edit Company",
+
+  "User Name": "Username",
+  "photo": "Photo",
+  "Add User": "Add User",
+  "Edit User": "Edit User",
+  "permissions": "Permissions",
+  "Password": "Password",
+
+  "educational qualification": "Educational Qualification",
+  "date of educational qualification": "Graduation Year",
+
+  "Alert Delete": "Are you sure you want to delete?",
+  "Close": "Close",
+
+  "repair": "Maintenance Mode",
+
+  "welcome_h": "Welcome",
+  "welcome_p": "Please select your company, username, and password",
+
+  "login": "Login",
+
+  "soon_h": "Site Under Maintenance",
+  "soon_p": "Please check back later",
+
+  "dialect": "Entity",
+
+  "Add dialect": "Add Entity",
+  "Edit dialect": "Edit Entity",
+
+  "Edit": "Edit",
+
+  "status1": "Active",
+  "status2": "Inactive",
+
+  "auth_h": "Access Denied",
+  "auth_p": "You do not have permission to view this page using the credentials you provided during login. <br>Please contact the site administrator.",
+  "auth_b": "Back to Home",
+  "Settings": "Settings",
+  "Site Name": "Site Name"
+}

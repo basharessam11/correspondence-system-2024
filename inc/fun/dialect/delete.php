@@ -1,0 +1,67 @@
+<?php
+include"../../sql.php";
+  $id=filter_var($_POST['id'], FILTER_SANITIZE_STRING);
+ 
+
+if (empty($id)) {
+header("location:../../../dashbord.php?dialect=show&delete2=no");
+}else{
+$a=explode(",", $id);
+$b= implode(" or id = ", $a);
+
+$array=[];
+
+$sql->select1("dialect","where id=$b");
+while ($row=$sql->res1->fetch_assoc()) {
+
+  $id=$row['id'];
+
+
+  $sql->selectall("incoming where dialect_id = $id");
+ 
+$incoming=$sql->res->num_rows;
+$sql->selectall("outgoing where dialect_id = $id");
+ 
+if ($sql->res->num_rows == 0 and $incoming == 0) {
+
+ 
+$sql->delete("dialect","where id=$id");
+session_start();
+$user_id =$_SESSION['user_id'];
+$name_user =$_SESSION['name'];
+$name_user_en =$_SESSION['name_en'];
+$permissions_user =$_SESSION['permissions'];
+$permissions_user_en =$_SESSION['permissions_en'];
+$date_user =date("Y-m-d h:i:s");
+
+$sql->insert('notifications',["user_id"=>"$user_id","page"=>"حذف الجهة","des"=>"  ﻗﺎﻡ  $name_user ($permissions_user) بحذف الجهة ","page_en"=>"Delete dialect","des_en"=>"$name_user_en ($permissions_user_en) deleted a dialect. ","status"=>0,"date"=>"$date_user"]);
+
+ }else{
+  array_push($array, $id);
+ } 
+    
+
+
+
+  }
+
+  
+if (empty($array)) {
+ header("location:../../../dashbord.php?dialect=show&delete1=su");
+}else{
+ header("location:../../../dashbord.php?dialect=show&delete=no");
+
+}
+
+
+
+
+  
+
+
+
+
+
+
+
+}
